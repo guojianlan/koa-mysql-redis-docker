@@ -1,0 +1,50 @@
+{
+  "name": "koa-mysql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node_modules/nodemon/bin/nodemon.js server/bin/start.js",
+    "prod": "NODE_ENV=production node_modules/nodemon/bin/nodemon.js server/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ali-oss": "6.1.1",
+    "busboy": "0.3.1",
+    "koa": "2.7.0",
+    "koa-bodyparser": "4.2.1",
+    "koa-ejs": "4.2.0",
+    "koa-router": "7.4.0",
+    "koa-static": "5.0.0",
+    "koa-static-cache": "5.1.2",
+    "lodash": "4.17.11",
+    "mysql2": "1.6.5",
+    "ramda": "0.26.1",
+    "reflect-metadata": "0.1.13",
+    "request": "2.88.0",
+    "request-promise": "4.2.4",
+    "useragent": "2.3.0",
+    "winston": "3.2.1",
+    "winston-daily-rotate-file": "3.9.0",
+    "ioredis": "4.9.5",
+    "fast-xml-parser": "3.12.16",
+    "pm2": "3.5.1",
+    "koa-body": "4.1.0"
+  },
+  "devDependencies": {
+    "@types/busboy": "0.2.3",
+    "@types/koa": "2.0.48",
+    "@types/koa-bodyparser": "4.3.0",
+    "@types/koa-router": "7.0.40",
+    "@types/koa-static": "4.0.1",
+    "@types/koa-static-cache": "5.1.0",
+    "@types/lodash": "4.14.133",
+    "@types/mysql": "2.15.6",
+    "@types/ramda": "0.26.9",
+    "@types/request-promise": "4.1.44",
+    "@types/useragent": "2.1.1",
+    "@types/ioredis": "4.0.11"
+  }
+}

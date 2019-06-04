@@ -1,0 +1,50 @@
+version: "3"
+services:
+  mysql:
+    image: ${mysql}
+    ports:
+      - "6606:3306"
+    networks:
+      - default
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${mysql_password}
+      - MYSQL_DATABASE=${mysql_database}
+    restart: always
+    command:
+      [
+        mysqld,
+        --character-set-server=utf8mb4,
+        --collation-server=utf8mb4_unicode_ci,
+      ]
+  redis:
+    image: ${redis}
+    ports:
+      - "6679:6379"
+    volumes: 
+      - ./redis/data:/data
+      - ./redis/conf/redis.conf:/usr/local/etc/redis/redis.conf
+    networks: 
+      - default
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+  web:
+    container_name: my_company_web
+    image: node-framework_node-framework:latest
+    working_dir: /data/www/app/
+    ports:
+      - "6601:8080"
+    environment:
+      - TZ=Asia/Shanghai
+      - NODE_ENV=${NODE_ENV}
+    volumes:
+      - ./node/server/:/data/www/app/server/
+      - ./log/:/data/www/app/log/
+      - ./ecosystem.config.js:/data/www/app/ecosystem.config.js
+    depends_on:
+      - mysql
+      - redis
+    restart: always
+    networks:
+      - default
+    command: ["node_modules/.bin/pm2-runtime", "ecosystem.config.js"]

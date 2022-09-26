@@ -30,7 +30,7 @@
     "winston-daily-rotate-file": "3.9.0",
     "ioredis": "4.9.5",
     "fast-xml-parser": "3.12.16",
-    "pm2": "3.5.1",
+    "pm2": "5.2.0",
     "koa-body": "4.1.0"
   },
   "devDependencies": {
